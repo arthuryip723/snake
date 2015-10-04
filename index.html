@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snake</title>
+    <link rel="stylesheet" type="text/css" href="css/snake.css">
+  </head>
+
+  <body>
+    <h1>Snake</h1>
+
+    <div class="main"></div>
+
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/snake-view.js"></script>
+
+    <script>
+      $(function () {
+        new SG.View($(".main"));
+      });
+    </script>
+  </body>
+</html>
