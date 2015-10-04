@@ -10,6 +10,10 @@
     <h1>Snake</h1>
 
     <div class="main"></div>
+    <div class="modal">
+      Would you like to play again?<br><br>
+      <button class="play-button">Play again!</button>
+    </div>
 
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -19,6 +23,10 @@
     <script>
       $(function () {
         new SG.View($(".main"));
+        $("body").on("click", ".play-button", function () {
+          $(".modal").removeClass("is-open");
+          new SG.View($(".main"));
+        });
       });
     </script>
   </body>

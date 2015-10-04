@@ -19,8 +19,8 @@
   };
 
   View.prototype.handleKeyPress = function (event) {
-    if (!this.started) this.started = true;
     if (View.KEYS[event.keyCode]) {
+      if (!this.started) this.started = true;
       this.board.snake.turn(View.KEYS[event.keyCode]);
     }
   };
@@ -30,8 +30,9 @@
       if (this.started) this.board.snake.move();
       this.render();
     } else {
-      alert('you lost');
       window.clearInterval(this.intervalHandle);
+      // alert('you lost');
+      $('.modal').addClass('is-open');
     }
 
   };
