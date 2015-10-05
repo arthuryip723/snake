@@ -21,7 +21,8 @@
     };
 
     var Snake = SG.Snake = function (board) {
-      this.dir = 'N';
+      // this.dir = 'N';
+      this.dir = 'default';
       this.board = board;
       var center = new Coord(Math.floor(board.size / 2), Math.floor(board.size / 2));
       // debugger;
@@ -36,19 +37,6 @@
 
     Snake.prototype.move = function () {
       // check if current position is valid
-      if (!this.board.isValidPosition(this.head())){
-        // this.lost = true;
-        this.segments = [];
-        return;
-      }
-
-      for (var i = 0; i < this.segments.length - 1; i++) {
-        if (this.head().equals(this.segments[i])) {
-          // debugger
-          this.segments = [];
-          return;
-        }
-      }
 
       this.segments.push(this.head().plus(Snake.DIFFS[this.dir]));
 
@@ -63,6 +51,20 @@
         this.growings--;
       } else {
         this.segments.shift();
+      }
+      
+      if (!this.board.isValidPosition(this.head())){
+        // this.lost = true;
+        this.segments = [];
+        return;
+      }
+
+      for (var i = 0; i < this.segments.length - 1; i++) {
+        if (this.head().equals(this.segments[i])) {
+          // debugger
+          this.segments = [];
+          return;
+        }
       }
     };
 
@@ -91,7 +93,8 @@
       'N': new Coord(0, -1),
       'E': new Coord(1, 0),
       'S': new Coord(0, 1),
-      'W': new Coord(-1, 0)
+      'W': new Coord(-1, 0),
+      'default': new Coord(0, 0)
     };
 
     Snake.prototype.isOccupying = function(coord) {
