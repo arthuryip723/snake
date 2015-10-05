@@ -33,6 +33,8 @@
       window.clearInterval(this.intervalHandle);
       // alert('you lost');
       $('.modal').addClass('is-open');
+      $('.modal .score').html(this.board.snake.numOfApplesEaten);
+
     }
 
   };

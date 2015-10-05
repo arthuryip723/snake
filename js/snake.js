@@ -27,6 +27,7 @@
       // debugger;
       this.segments = [center];
       this.lost = false;
+      this.numOfApplesEaten = 0;
     };
 
     Snake.prototype.head = function () {
@@ -67,6 +68,7 @@
 
     Snake.prototype.eatApple = function () {
       if (this.head().equals(this.board.apple.position)) {
+        this.numOfApplesEaten++;
         this.growings = 3;
         this.board.apple.isJustEaten = true;
         return true;
