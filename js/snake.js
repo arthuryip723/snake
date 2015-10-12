@@ -52,7 +52,7 @@
       } else {
         this.segments.shift();
       }
-      
+
       if (!this.board.isValidPosition(this.head())){
         // this.lost = true;
         this.segments = [];
@@ -117,7 +117,7 @@
       var grid = [];
       for (var i = 0; i < this.size; i++) {
         var row = [];
-        for (var j = 0; i < this.size; i++) {
+        for (var j = 0; j < this.size; j++) {
           row.push('.');
         }
         grid.push(row);
